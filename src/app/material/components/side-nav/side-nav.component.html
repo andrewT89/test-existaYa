@@ -1,0 +1,22 @@
+<div class="container-side-nav" [class.side-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="side-toolbar">
+    <button mat-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="side-app-name">Take your vote..!!</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="side-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="{{ nav.link }}" *ngFor="let nav of fillerNav">{{nav.name}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

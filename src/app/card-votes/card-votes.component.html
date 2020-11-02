@@ -1,0 +1,37 @@
+<mat-grid-list cols="2" rowHeight="2:2">
+  <mat-grid-tile *ngFor="let item of superHeroes; let i=index">
+    <mat-card class="card" style="clear: both;display: table;">
+      <mat-card-header>
+        <div mat-card-avatar class="card-header-image"></div>
+        <mat-card-title>Super heroe # {{ i + 1 }}</mat-card-title>
+        <mat-card-subtitle>Nombre: {{ item.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image
+        src="{{ item.img }}"
+        width="100px"
+        height="200px"
+        alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          Votos positivos
+          <mat-progress-bar mode="determinate" [value]="item.positiveVotes"></mat-progress-bar>
+          <span> {{ item.positiveVotes + '%' }} </span>
+          <br/>
+          Voto negativos
+          <mat-progress-bar mode="determinate" [value]="item.negativeVotes"></mat-progress-bar>
+          <span> {{ item.negativeVotes + '%' }} </span>
+        </mat-card-content>
+      <mat-card-actions>
+        <div class="card-button-row">
+          <button mat-icon-button (click)="changeColor(i, item.isLiked = !item.isLiked)">
+            <mat-icon [ngStyle]="{'color': item.cardIconLike}">thumb_up</mat-icon>
+            Me Gusta
+          </button>
+          <button mat-icon-button (click)="disLiked(i, false)">
+            <mat-icon>thumb_down</mat-icon>
+            No me Gusta
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

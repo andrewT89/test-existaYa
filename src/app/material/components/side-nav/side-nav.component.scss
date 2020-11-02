@@ -1,0 +1,32 @@
+.container-side-nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  padding: 30px 50px 10px;
+  min-width: calc(1024px - 52px - 52px);
+  box-sizing: border-box;
+}
+
+.side-is-mobile .side-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+h1.side-app-name {
+  margin-left: 8px;
+}
+
+.side-sidenav-container {
+  flex: 1;
+}
+
+.side-is-mobile .side-sidenav-container {
+  flex: 1 0 auto;
+}

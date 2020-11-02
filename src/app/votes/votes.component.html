@@ -1,0 +1,21 @@
+<div class="title">
+  <span> Listado de Porcentajes de votos realizados </span>
+</div>
+<mat-grid-list *ngIf="superHeroes.length > 0" cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let item of superHeroes; let i=index">
+    <mat-card class="example-card" style="clear: both;display: table;">
+      <mat-card-header>
+        <mat-card-subtitle>Nombre: {{ item.name }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        Votos positivos
+          <mat-progress-bar mode="determinate" [value]="item.positiveVotes"></mat-progress-bar>
+          <span> {{ item.positiveVotes + '%' }} </span>
+          <br/>
+          Voto negativos
+          <mat-progress-bar mode="determinate" [value]="item.negativeVotes"></mat-progress-bar>
+          <span> {{ item.negativeVotes + '%' }} </span>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
